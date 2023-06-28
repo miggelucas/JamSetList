@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17AF5EE12A4CF059008BC2D8 /* SetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AF5EE02A4CF059008BC2D8 /* SetListView.swift */; };
 		17D75B1A2A47429A00B3D353 /* ExploringCoreDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D75B192A47429A00B3D353 /* ExploringCoreDataApp.swift */; };
 		17D75B1C2A47429A00B3D353 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D75B1B2A47429A00B3D353 /* ContentView.swift */; };
 		17D75B1E2A47429B00B3D353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D75B1D2A47429B00B3D353 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17AF5EE02A4CF059008BC2D8 /* SetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetListView.swift; sourceTree = "<group>"; };
 		17D75B162A47429A00B3D353 /* ExploringCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExploringCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D75B192A47429A00B3D353 /* ExploringCoreDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploringCoreDataApp.swift; sourceTree = "<group>"; };
 		17D75B1B2A47429A00B3D353 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				17D75B3F2A47470800B3D353 /* Persistence */,
 				17D75B192A47429A00B3D353 /* ExploringCoreDataApp.swift */,
 				17D75B1B2A47429A00B3D353 /* ContentView.swift */,
+				17AF5EE02A4CF059008BC2D8 /* SetListView.swift */,
 				17D75B492A49B6DE00B3D353 /* Bands */,
 				17F0330E2A4C616200152F59 /* Songs */,
 				17D75B1D2A47429B00B3D353 /* Assets.xcassets */,
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D75B482A49B09F00B3D353 /* SongsView.swift in Sources */,
+				17AF5EE12A4CF059008BC2D8 /* SetListView.swift in Sources */,
 				17D75B442A474EDB00B3D353 /* BandsView.swift in Sources */,
 				17D75B1C2A47429A00B3D353 /* ContentView.swift in Sources */,
 				17D75B1A2A47429A00B3D353 /* ExploringCoreDataApp.swift in Sources */,
