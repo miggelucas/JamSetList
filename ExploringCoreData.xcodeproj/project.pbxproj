@@ -37,12 +37,12 @@
 		17D75B452A47B13500B3D353 /* BandsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandsViewModel.swift; sourceTree = "<group>"; };
 		17D75B472A49B09F00B3D353 /* SongsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsView.swift; sourceTree = "<group>"; };
 		17D75B4A2A49B70200B3D353 /* SongsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewModel.swift; sourceTree = "<group>"; };
-		17DEE0D72A4CC3920013820A /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		17DEE0D82A4CC3920013820A /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		17DEE0D92A4CC3920013820A /* SetList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		17DEE0DA2A4CC3920013820A /* SetList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		17DEE0DB2A4CC3920013820A /* Band+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Band+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		17DEE0DC2A4CC3920013820A /* Band+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Band+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0D72A4CC3920013820A /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Song+CoreDataClass.swift"; path = "ExploringCoreData/Persistence/Models/Song+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0D82A4CC3920013820A /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Song+CoreDataProperties.swift"; path = "ExploringCoreData/Persistence/Models/Song+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0D92A4CC3920013820A /* SetList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SetList+CoreDataClass.swift"; path = "ExploringCoreData/Persistence/Models/SetList+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0DA2A4CC3920013820A /* SetList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SetList+CoreDataProperties.swift"; path = "ExploringCoreData/Persistence/Models/SetList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0DB2A4CC3920013820A /* Band+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Band+CoreDataClass.swift"; path = "ExploringCoreData/Persistence/Models/Band+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		17DEE0DC2A4CC3920013820A /* Band+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Band+CoreDataProperties.swift"; path = "ExploringCoreData/Persistence/Models/Band+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
