@@ -104,6 +104,7 @@ struct BandsView: View {
                 Section("ADICIONAR BANDA") {
                     TextField("Nome da banda", text: $viewModel.bandName)
                         .submitLabel(.done)
+                        .textInputAutocapitalization(.words)
                         .onSubmit {
                             viewModel.addBandPressed()
                         }
