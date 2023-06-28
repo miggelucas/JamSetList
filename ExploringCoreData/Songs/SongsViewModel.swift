@@ -11,19 +11,31 @@ class SongsViewModel: ObservableObject {
     
     @Published var band: Band
     
-    var songs: [Song] {
-        band.songsArray
-    }
-    
     @Published var isPresentingSheet: Bool = false
     @Published var songName: String = ""
+    
+    enum State {
+        case empty, content
+    }
+    
+    var state: State {
+        if songs.isEmpty {
+            return .empty
+        } else {
+            return .content
+        }
+    }
+
+    init(band: Band) {
+        self.band = band
+    }
     
     var dataManager: CoreDataManager {
         CoreDataManager.shared
     }
     
-    init(band: Band) {
-        self.band = band
+    var songs: [Song] {
+        band.songsArray
     }
 
     func addSongPressed() {

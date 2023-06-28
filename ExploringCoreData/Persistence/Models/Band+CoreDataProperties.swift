@@ -35,6 +35,15 @@ extension Band {
     public var songsArray: [Song] {
         return Array(unwrappedSongs)
     }
+    
+    static public func createDummyBand() -> Band {
+        let dummyBand = Band()
+        dummyBand.id = UUID()
+        dummyBand.name = "iCarly"
+    
+        
+        return dummyBand
+    }
 
 }
 

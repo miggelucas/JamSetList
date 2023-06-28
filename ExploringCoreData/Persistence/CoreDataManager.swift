@@ -12,23 +12,41 @@ final class CoreDataManager {
     
     static var shared: CoreDataManager = CoreDataManager()
     
-    init(container: NSPersistentContainer = NSPersistentContainer(name: "Persistence")) {
-        self.persistentContainer = {
-            container.loadPersistentStores { description, error in
-                if let error = error as NSError? {
-                    fatalError("Error loading persistence container: \(error.userInfo)")
-                }
+    static var preview: CoreDataManager {
+        let manager = CoreDataManager(inMemory: true)
+        
+        let dummyBand = Band(context: manager.context)
+        dummyBand.id = UUID()
+        dummyBand.name = "Los Sebosos Postizos"
+
+        return manager
+    }
+    
+    
+    var container: NSPersistentContainer
+    
+    init(inMemory: Bool = false, persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "Persistence")) {
+        
+        self.container = persistentContainer
+        
+        if inMemory {
+            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        }
+        
+        container.loadPersistentStores { description, error in
+            if let error = error as NSError? {
+                fatalError("Error loading persistence container: \(error.userInfo)")
             }
-            return container
-        }()
- 
+        }
+        
+        
     }
     
     var context: NSManagedObjectContext  {
-        persistentContainer.viewContext
+        container.viewContext
     }
     
-    var persistentContainer: NSPersistentContainer
+    
     
     private func saveContext() {
         if context.hasChanges {
@@ -88,7 +106,7 @@ final class CoreDataManager {
     
     func refeshBand(for band: Band) -> Band? {
         let request: NSFetchRequest<Band> = Band.fetchRequest()
-
+        
         let predicate: NSPredicate = NSPredicate(format: "id == %@", band.unwrappedId as CVarArg)
         
         request.predicate = predicate
@@ -101,11 +119,13 @@ final class CoreDataManager {
             } else {
                 print("could not find band for refresh")
             }
-
+            
         } catch {
             print("Failed to refresh Band")
         }
         
         return band
     }
+    
+   
 }

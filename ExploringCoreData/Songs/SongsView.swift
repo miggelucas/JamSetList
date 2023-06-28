@@ -14,8 +14,37 @@ struct SongsView: View {
     init(viewModel: SongsViewModel) {
         self.viewModel = viewModel
     }
-    
+        
     var body: some View {
+        
+        VStack {
+            switch viewModel.state {
+            case .content:
+                listView
+            case .empty:
+                Text("empty State")
+            }
+            
+    
+            
+        }
+        .toolbar {
+            Button {
+                viewModel.isPresentingSheet = true
+            } label: {
+                Image(systemName: "plus")
+            }
+        }
+        
+        .sheet(isPresented: $viewModel.isPresentingSheet) {
+            sheetView
+        }
+        
+        .navigationTitle(viewModel.band.unwrappedName)
+        
+    }
+    
+    private var listView: some View {
         List {
             ForEach(viewModel.songs) { song in
                 Text(song.unwrappedName)
@@ -35,56 +64,45 @@ struct SongsView: View {
                 }
                 
             }
-            .toolbar {
-                Button {
-                    viewModel.isPresentingSheet = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
             
-            .sheet(isPresented: $viewModel.isPresentingSheet) {
-                VStack {
-                    Form {
-                        Section("ADICIONAR Música") {
-                            TextField("Nome da música", text: $viewModel.songName)
-                                .submitLabel(.done)
-                                .onSubmit {
-                                    viewModel.addSongPressed()
-                                }
+        }
+    }
+
+    
+    private var sheetView: some View {
+        VStack {
+            Form {
+                Section("ADICIONAR Música") {
+                    TextField("Nome da música", text: $viewModel.songName)
+                        .submitLabel(.done)
+                        .onSubmit {
+                            viewModel.addSongPressed()
                         }
-                    }
-                    
-                    Button {
-                        viewModel.addSongPressed()
-                        
-                    } label: {
-                        Text("Adicionar")
-                        
-                    }
-                    .buttonStyle(.borderedProminent)
-                    
-                    Spacer()
-                    
-                    
                 }
             }
             
-            .navigationTitle(viewModel.band.unwrappedName)
+            Button {
+                viewModel.addSongPressed()
+                
+            } label: {
+                Text("Adicionar")
+                
+            }
+            .buttonStyle(.borderedProminent)
+            
+            Spacer()
+            
+            
         }
     }
 }
 
 
 struct SongsView_Previews: PreviewProvider {
-    static var band: Band {
-        let band = Band()
-        band.id = UUID()
-        band.name = "Gulliver"
-        return band
-    }
-    
+
     static var previews: some View {
-        SongsView(viewModel: SongsViewModel(band: band))
+        let coreDataManager = CoreDataManager.preview
+        let dummyBand = coreDataManager.fetchBands().first!
+        SongsView(viewModel: SongsViewModel(band: dummyBand))
     }
 }
