@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct SetListView: View {
+    
+//    @ObservedObject var viewModel: SetListViewModel = SetListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Em construção")
+//        List {
+//            ForEach(viewModel.songs) { song in
+//                Text(song.unwrappedName)
+//            }
+//        }
     }
 }
 

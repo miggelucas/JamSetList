@@ -22,8 +22,8 @@ final class CoreDataManager {
         return manager
     }
     
-    
     var container: NSPersistentContainer
+
     
     init(inMemory: Bool = false, persistentContainer: NSPersistentContainer = NSPersistentContainer(name: "Persistence")) {
         
@@ -39,6 +39,7 @@ final class CoreDataManager {
             }
         }
         
+
         
     }
     
@@ -125,6 +126,20 @@ final class CoreDataManager {
         }
         
         return band
+    }
+    
+    func fetchSongs() -> [Song] {
+        let request = Song.fetchRequest()
+        
+        var songsArray = [Song]()
+        
+        do {
+            songsArray = try context.fetch(request)
+        } catch {
+            print("Falied to load all Songs")
+        }
+        
+        return songsArray
     }
     
    

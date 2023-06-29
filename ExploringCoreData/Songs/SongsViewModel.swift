@@ -37,11 +37,15 @@ class SongsViewModel: ObservableObject {
     var songs: [Song] {
         band.songsArray
     }
+    
+    func didDismissSheet() {
+        isPresentingSheet = false
+        songName = ""
+    }
 
     func addSongPressed() {
         dataManager.addSong(title: songName, from: band)
-        isPresentingSheet = false
-        songName = ""
+        didDismissSheet()
         
         if let fetchedBand = dataManager.refeshBand(for: band) {
             print("fetchedBand \(fetchedBand.unwrappedId)")

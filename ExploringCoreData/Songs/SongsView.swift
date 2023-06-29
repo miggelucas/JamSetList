@@ -50,8 +50,7 @@ struct SongsView: View {
                 case .empty:
                     emptyStateView
                 }
-                
-                
+                  
                 
             }
             .toolbar {
@@ -62,7 +61,9 @@ struct SongsView: View {
                 }
             }
             
-            .sheet(isPresented: $viewModel.isPresentingSheet) {
+            .sheet(isPresented: $viewModel.isPresentingSheet, onDismiss: {
+                viewModel.didDismissSheet()
+            }) {
                 sheetView
             }
             

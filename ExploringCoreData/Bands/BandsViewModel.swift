@@ -33,16 +33,21 @@ class BandsViewModel: ObservableObject {
         self.dataManager = coreDataManager
         self.bands = dataManager.fetchBands()
     }
+
     
     private func refreshBands() {
         self.bands = dataManager.fetchBands()
     }
     
-    func addBandPressed() {
-        dataManager.addBand(name: bandName)
+    func didDismissSheet() {
         isPresentingSheet = false
         bandName = ""
-        
+    }
+    
+    func addBandPressed() {
+        dataManager.addBand(name: bandName)
+        didDismissSheet()
+
         refreshBands()
         
     }

@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct ExploringCoreDataApp: App {
 
-    var coreDataManager: CoreDataManager = CoreDataManager.shared
-
     var body: some Scene {
         WindowGroup {
             ContentView()

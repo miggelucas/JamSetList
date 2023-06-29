@@ -20,6 +20,7 @@ struct ContentView: View {
                 }
                 .tag(0)
             
+            
             BandsView()
                 .tabItem({
                     Label("Bandas", systemImage: "music.mic.circle.fill")

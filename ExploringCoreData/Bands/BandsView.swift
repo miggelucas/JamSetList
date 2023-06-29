@@ -16,7 +16,6 @@ struct BandsView: View {
     }
     
     private var emptyView: some View {
-        
         VStack(spacing: 40) {
             Image(systemName: "music.mic.circle.fill")
                 .resizable()
@@ -61,7 +60,9 @@ struct BandsView: View {
                 
             }
             
-            .sheet(isPresented: $viewModel.isPresentingSheet) {
+            .sheet(isPresented: $viewModel.isPresentingSheet, onDismiss: {
+                viewModel.didDismissSheet()
+            }) {
                 sheetView
             }
         }
