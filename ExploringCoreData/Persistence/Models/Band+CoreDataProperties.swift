@@ -19,9 +19,11 @@ extension Band {
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var songs: NSSet?
+    @NSManaged public var instrument: String?
+    @NSManaged public var creationDate: Date?
     
     public var unwrappedName: String {
-        name ?? "unknow name"
+        name ?? "unknow Band name"
     }
     
     public var unwrappedId: UUID {
@@ -36,10 +38,18 @@ extension Band {
         return Array(unwrappedSongs)
     }
     
+    var unwreappedInstrumnent: Instrument {
+        guard let instrumentRaw = self.instrument else { return .vocal }
+        
+        return Instrument(rawValue: instrumentRaw) ?? .vocal
+        
+    }
+    
     static public func createDummyBand() -> Band {
         let dummyBand = Band()
         dummyBand.id = UUID()
         dummyBand.name = "iCarly"
+        dummyBand.instrument = "guitar"
     
         
         return dummyBand

@@ -76,7 +76,7 @@ struct BandsView: View {
                     SongsView(viewModel: SongsViewModel(band: band))
                     
                 } label: {
-                    Text(band.unwrappedName)
+                    BandRow(band: band)
                         .contextMenu {
                             Button("Delete", role: .destructive) {
                                 withAnimation(.easeIn(duration: 1)) {
@@ -88,8 +88,13 @@ struct BandsView: View {
                     
                 }
             }
+//            .onMove(perform: { indices, newOffset in
+//                print(indices)
+//                print(newOffset)
+//            })
+            
             .onDelete { offsets in
-                withAnimation() {
+                withAnimation(.easeInOut(duration: 1)) {
                     offsets.forEach { index in
                         viewModel.deleteBand(atIndex: index)
                     }
@@ -99,39 +104,7 @@ struct BandsView: View {
     }
     
     private var sheetView: some View {
-        
-        VStack {
-            Form {
-                Section("ADICIONAR BANDA") {
-                    TextField("Nome da banda", text: $viewModel.bandName)
-                        .submitLabel(.done)
-                        .textInputAutocapitalization(.words)
-                        .onSubmit {
-                            viewModel.addBandPressed()
-                        }
-                }
-            }
-            
-            Button {
-                viewModel.addBandPressed()
-                
-            } label: {
-                Text("Adicionar")
-                
-            }
-            
-            Spacer()
-            
-            
-        }
-        .toolbar {
-            Button {
-                viewModel.addBandPressed()
-            } label: {
-                Image(systemName: "plus")
-            }
-            
-        }
+        AddBandView(viewModel: viewModel.addBandViewModel)
         
     }
     

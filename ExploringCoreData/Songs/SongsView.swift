@@ -64,7 +64,9 @@ struct SongsView: View {
             .sheet(isPresented: $viewModel.isPresentingSheet, onDismiss: {
                 viewModel.didDismissSheet()
             }) {
-                sheetView
+                AddSongView(bandName: viewModel.bandName) { (songName, key) in
+                    viewModel.addSongPressed(songName: songName, key: key)
+                }
             }
             
             .navigationTitle(viewModel.band.unwrappedName)
@@ -97,33 +99,39 @@ struct SongsView: View {
     }
     
     
-    private var sheetView: some View {
-        VStack {
-            Form {
-                Section("ADICIONAR Música") {
-                    TextField("Nome da música", text: $viewModel.songName)
-                        .submitLabel(.done)
-                        .textInputAutocapitalization(.sentences)
-                        .onSubmit {
-                            viewModel.addSongPressed()
-                        }
-                }
-            }
-            
-            Button {
-                viewModel.addSongPressed()
-                
-            } label: {
-                Text("Adicionar")
-                
-            }
-            .buttonStyle(.borderedProminent)
-            
-            Spacer()
-            
-            
-        }
-    }
+//    private var sheetView: some View {
+//        VStack {
+//            Text(viewModel.band.unwrappedName)
+//                .font(.title)
+//                .padding()
+//            
+//            Form {
+//                Section("Adicionar Música") {
+//                    TextField("Nome da música", text: $viewModel.songName)
+//                        .submitLabel(.done)
+//                        .textInputAutocapitalization(.sentences)
+//                        .onSubmit {
+//                            viewModel.addSongPressed()
+//                        }
+//                    
+//                    
+//                }
+//            }
+//            
+//            Button {
+//                viewModel.addSongPressed()
+//                
+//            } label: {
+//                Text("Adicionar")
+//                
+//            }
+//            .buttonStyle(.borderedProminent)
+//            
+//            Spacer()
+//            
+//            
+//        }
+//    }
 }
 
 

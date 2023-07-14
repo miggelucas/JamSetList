@@ -12,7 +12,7 @@ class SongsViewModel: ObservableObject {
     @Published var band: Band
     
     @Published var isPresentingSheet: Bool = false
-    @Published var songName: String = ""
+//    @Published var songName: String = ""
     
     enum State {
         case empty, content
@@ -34,16 +34,25 @@ class SongsViewModel: ObservableObject {
         CoreDataManager.shared
     }
     
+    private func refreshBand() {
+        if let fetchedBand = dataManager.refeshBand(for: self.band) {
+            band = fetchedBand
+        }
+    }
+    
     var songs: [Song] {
         band.songsArray
     }
     
+    var bandName: String {
+        band.unwrappedName
+    }
+    
     func didDismissSheet() {
         isPresentingSheet = false
-        songName = ""
     }
 
-    func addSongPressed() {
+    func addSongPressed(songName: String, key: SongKey) {
         dataManager.addSong(title: songName, from: band)
         didDismissSheet()
         
@@ -51,17 +60,19 @@ class SongsViewModel: ObservableObject {
             print("fetchedBand \(fetchedBand.unwrappedId)")
             band = fetchedBand
         } else {
-            print("Não foi possível encontrar a banda para ser atualizada")
+            print("Não foi possível enc,ontrar a banda para ser atualizada")
         }
         
     }
     
     func deleteSong(_ song: Song) {
         dataManager.deleteSong(song)
+        refreshBand()
     }
     
     func deleteSong(atIndex Index: Int) {
         let selectedSong: Song = songs[Index]
         dataManager.deleteSong(selectedSong)
+        refreshBand()
     }
 }

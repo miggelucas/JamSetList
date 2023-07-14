@@ -19,8 +19,9 @@ extension Song {
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var key: String?
+    @NSManaged public var creationDate: Date?
     @NSManaged public var band: Band?
-    @NSManaged public var setList: SetList?
+
     
     public var unwrappedID: UUID {
         id ?? UUID()
@@ -31,16 +32,33 @@ extension Song {
     }
     
     
-//    enum Key: String {
-//        case original, minus1, minus2, minus3, added1, added2, added3
-//    }
-    
-    public var unwrappedKey: String {
-        key ?? "Original"
+    var unwrappedKey: SongKey {
+        if let rawKey = key {
+            switch rawKey {
+            case "-3":
+                return .minus3
+            case "-2":
+                return .minus2
+            case "-1":
+                return .minus1
+            case "+1":
+                return .added1
+            case "+2":
+                return .added2
+            case "+3":
+                return .added3
+            
+            default:
+                return .original
+            }
+        } else {
+            return .original
+        }
     }
     
 
 }
+
 
 extension Song : Identifiable {
 

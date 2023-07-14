@@ -39,7 +39,6 @@ final class CoreDataManager {
             }
         }
         
-
         
     }
     
@@ -60,10 +59,13 @@ final class CoreDataManager {
     }
     
     
-    func addBand(name: String) {
+    func addBand(name: String, instrument: Instrument) {
         let band = Band(context: context)
         band.id = UUID()
         band.name = name
+        band.instrument = instrument.rawValue
+        band.creationDate = Date()
+        
         
         saveContext()
         
@@ -72,6 +74,8 @@ final class CoreDataManager {
     
     func fetchBands() -> [Band] {
         let request: NSFetchRequest<Band> = Band.fetchRequest()
+        let sortDescriptors: NSSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptors]
         
         var fetchedBands: [Band] = []
         

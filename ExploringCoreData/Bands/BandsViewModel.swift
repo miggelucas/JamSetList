@@ -9,11 +9,13 @@ import Foundation
 import SwiftUI
 
 class BandsViewModel: ObservableObject {
-    
     @Published var bands: [Band]
     
     @Published var isPresentingSheet: Bool = false
     @Published var bandName: String = ""
+    @Published var chosenInstrument: Instrument = .eletricGuitar
+    
+    @Published var addBandViewModel: AddBandViewModel = AddBandViewModel()
     
     enum State {
         case empty, content
@@ -32,6 +34,7 @@ class BandsViewModel: ObservableObject {
     init(coreDataManager: CoreDataManager = CoreDataManager.shared) {
         self.dataManager = coreDataManager
         self.bands = dataManager.fetchBands()
+        addBandViewModel.degalete = self
     }
 
     
@@ -42,10 +45,12 @@ class BandsViewModel: ObservableObject {
     func didDismissSheet() {
         isPresentingSheet = false
         bandName = ""
+        chosenInstrument = .eletricGuitar
     }
     
     func addBandPressed() {
-        dataManager.addBand(name: bandName)
+        dataManager.addBand(name: bandName,
+                            instrument: chosenInstrument)
         didDismissSheet()
 
         refreshBands()
@@ -62,4 +67,14 @@ class BandsViewModel: ObservableObject {
         dataManager.deleteBand(for: selectedBand)
         refreshBands()
     }
+    
+
+}
+
+extension BandsViewModel: addNewBandDelegate {
+    func refreshBandList() {
+        didDismissSheet()
+        refreshBands()
+    }
+    
 }
