@@ -52,18 +52,26 @@ class SongsViewModel: ObservableObject {
         isPresentingSheet = false
     }
 
-    func addSongPressed(songName: String, key: SongKey) {
-        dataManager.addSong(title: songName, from: band)
-        didDismissSheet()
-        
-        if let fetchedBand = dataManager.refeshBand(for: band) {
-            print("fetchedBand \(fetchedBand.unwrappedId)")
-            band = fetchedBand
-        } else {
-            print("Não foi possível enc,ontrar a banda para ser atualizada")
+    func addSongPressed(add songInfo: SongInfo) {
+        dataManager.addSong(add: songInfo, from: band) {
+            self.didDismissSheet()
+            self.refreshBand()
         }
         
     }
+    
+//    func addSongPressed(songName: String, key: SongKey) {
+//        dataManager.addSong(title: songName, from: band)
+//        didDismissSheet()
+//        
+//        if let fetchedBand = dataManager.refeshBand(for: band) {
+//            print("fetchedBand \(fetchedBand.unwrappedId)")
+//            band = fetchedBand
+//        } else {
+//            print("Não foi possível enc,ontrar a banda para ser atualizada")
+//        }
+//        
+//    }
     
     func deleteSong(_ song: Song) {
         dataManager.deleteSong(song)

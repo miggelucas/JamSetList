@@ -11,17 +11,19 @@ import CoreData
 
 
 extension Song {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Song> {
         return NSFetchRequest<Song>(entityName: "Song")
     }
-
+    
     @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var key: String?
     @NSManaged public var creationDate: Date?
+    @NSManaged public var artist: String?
+    @NSManaged public var isDropTune: String?
     @NSManaged public var band: Band?
-
+    
     
     public var unwrappedID: UUID {
         id ?? UUID()
@@ -31,6 +33,10 @@ extension Song {
         name ?? "unknow song name"
     }
     
+    
+    public var unwrappedArtistName: String {
+        artist ?? "unknow artist name"
+    }
     
     var unwrappedKey: SongKey {
         if let rawKey = key {
@@ -47,12 +53,20 @@ extension Song {
                 return .added2
             case "+3":
                 return .added3
-            
+                
             default:
                 return .original
             }
         } else {
             return .original
+        }
+    }
+    
+    public var uwnrappedIsDroptune: Bool {
+        if isDropTune != nil {
+            return true
+        } else {
+            return false
         }
     }
     

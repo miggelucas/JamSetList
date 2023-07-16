@@ -64,8 +64,8 @@ struct SongsView: View {
             .sheet(isPresented: $viewModel.isPresentingSheet, onDismiss: {
                 viewModel.didDismissSheet()
             }) {
-                AddSongView(bandName: viewModel.bandName) { (songName, key) in
-                    viewModel.addSongPressed(songName: songName, key: key)
+                AddSongView(bandName: viewModel.bandName) { songInfo in
+                    viewModel.addSongPressed(add: songInfo)
                 }
             }
             
@@ -97,41 +97,7 @@ struct SongsView: View {
             
         }
     }
-    
-    
-//    private var sheetView: some View {
-//        VStack {
-//            Text(viewModel.band.unwrappedName)
-//                .font(.title)
-//                .padding()
-//            
-//            Form {
-//                Section("Adicionar Música") {
-//                    TextField("Nome da música", text: $viewModel.songName)
-//                        .submitLabel(.done)
-//                        .textInputAutocapitalization(.sentences)
-//                        .onSubmit {
-//                            viewModel.addSongPressed()
-//                        }
-//                    
-//                    
-//                }
-//            }
-//            
-//            Button {
-//                viewModel.addSongPressed()
-//                
-//            } label: {
-//                Text("Adicionar")
-//                
-//            }
-//            .buttonStyle(.borderedProminent)
-//            
-//            Spacer()
-//            
-//            
-//        }
-//    }
+
 }
 
 

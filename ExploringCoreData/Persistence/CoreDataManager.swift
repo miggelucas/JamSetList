@@ -104,6 +104,22 @@ final class CoreDataManager {
         saveContext()
     }
     
+    func addSong(add songInfo: SongInfo, from band: Band, completionHandler: @escaping () -> Void) {
+        let newSong = Song(context: context)
+        newSong.name = songInfo.name
+        newSong.artist = songInfo.artist
+        newSong.band = band
+        newSong.creationDate = Date()
+        newSong.key = songInfo.key.rawValue
+        newSong.isDropTune = songInfo.dropTune ? "yes" : nil
+        
+        band.addToSongs(newSong)
+        
+        saveContext()
+        completionHandler()
+        
+    }
+    
     func deleteSong(_ song: Song) {
         context.delete(song)
         saveContext()
