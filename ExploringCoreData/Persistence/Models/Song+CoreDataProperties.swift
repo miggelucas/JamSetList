@@ -38,7 +38,7 @@ extension Song {
         artist ?? "unknow artist name"
     }
     
-    var unwrappedKey: SongKey {
+    public var unwrappedKey: SongKey {
         if let rawKey = key {
             switch rawKey {
             case "-3":

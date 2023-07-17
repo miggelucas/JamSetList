@@ -12,7 +12,6 @@ class SongsViewModel: ObservableObject {
     @Published var band: Band
     
     @Published var isPresentingSheet: Bool = false
-//    @Published var songName: String = ""
     
     enum State {
         case empty, content
@@ -41,7 +40,7 @@ class SongsViewModel: ObservableObject {
     }
     
     var songs: [Song] {
-        band.songsArray
+        band.songArray
     }
     
     var bandName: String {
@@ -59,19 +58,6 @@ class SongsViewModel: ObservableObject {
         }
         
     }
-    
-//    func addSongPressed(songName: String, key: SongKey) {
-//        dataManager.addSong(title: songName, from: band)
-//        didDismissSheet()
-//        
-//        if let fetchedBand = dataManager.refeshBand(for: band) {
-//            print("fetchedBand \(fetchedBand.unwrappedId)")
-//            band = fetchedBand
-//        } else {
-//            print("Não foi possível enc,ontrar a banda para ser atualizada")
-//        }
-//        
-//    }
     
     func deleteSong(_ song: Song) {
         dataManager.deleteSong(song)

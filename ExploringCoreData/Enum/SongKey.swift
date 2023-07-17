@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum SongKey: String, CaseIterable{
+public enum SongKey: String, CaseIterable{
     case minus3 = "-3"
     case minus2 = "-2"
     case minus1 = "-1"

@@ -30,12 +30,15 @@ extension Band {
         id ?? UUID()
     }
 
-    public var unwrappedSongs: Set<Song> {
-        return songs as? Set<Song> ?? []
-    }
     
-    public var songsArray: [Song] {
-        return Array(unwrappedSongs)
+    var songArray: [Song] {
+        let set = songs as? Set<Song> ?? []
+        return set.sorted {
+            guard let order1 = $0.creationDate, let order2 = $1.creationDate else {
+                return false
+            }
+            return order1 < order2
+        }
     }
     
     var unwreappedInstrumnent: Instrument {

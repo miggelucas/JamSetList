@@ -76,8 +76,8 @@ struct SongsView: View {
     
     private var listView: some View {
         List {
-            ForEach(viewModel.songs) { song in
-                Text(song.unwrappedName)
+            ForEach(viewModel.songs, id: \.self) { song in
+                SongRow(song: song)
                     .contextMenu {
                         Button("Delete", role: .destructive) {
                             withAnimation(.easeInOut(duration: 1)) {

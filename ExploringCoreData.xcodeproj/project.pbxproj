@@ -26,6 +26,7 @@
 		17DEE0E12A4CC3920013820A /* Band+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEE0DB2A4CC3920013820A /* Band+CoreDataClass.swift */; };
 		17DEE0E22A4CC3920013820A /* Band+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DEE0DC2A4CC3920013820A /* Band+CoreDataProperties.swift */; };
 		17F382B42A4DFAEF00481DBD /* AddSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F382B32A4DFAEF00481DBD /* AddSongView.swift */; };
+		17F6A3072A6435F10086908F /* SongRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F6A3062A6435F10086908F /* SongRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		17DEE0DB2A4CC3920013820A /* Band+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Band+CoreDataClass.swift"; path = "ExploringCoreData/Persistence/Models/Band+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		17DEE0DC2A4CC3920013820A /* Band+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Band+CoreDataProperties.swift"; path = "ExploringCoreData/Persistence/Models/Band+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		17F382B32A4DFAEF00481DBD /* AddSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongView.swift; sourceTree = "<group>"; };
+		17F6A3062A6435F10086908F /* SongRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				17D75B472A49B09F00B3D353 /* SongsView.swift */,
+				17F6A3062A6435F10086908F /* SongRow.swift */,
 				17F382B32A4DFAEF00481DBD /* AddSongView.swift */,
 				17D75B4A2A49B70200B3D353 /* SongsViewModel.swift */,
 			);
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D75B482A49B09F00B3D353 /* SongsView.swift in Sources */,
+				17F6A3072A6435F10086908F /* SongRow.swift in Sources */,
 				17D75B442A474EDB00B3D353 /* BandsView.swift in Sources */,
 				17D75B1C2A47429A00B3D353 /* ContentView.swift in Sources */,
 				17D75B1A2A47429A00B3D353 /* ExploringCoreDataApp.swift in Sources */,
