@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ExploringCoreDataApp: App {
+    // testing commit
 
     var body: some Scene {
         WindowGroup {
